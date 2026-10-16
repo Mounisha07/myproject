@@ -4,330 +4,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DriveEasy Car Rental</title>
+<title>Library Management System</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    background:#f4f6f9;
-    color:#222;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
 }
 
-.hidden{
-    display:none !important;
+header {
+    background: #1e3a5f;
+    color: white;
+    padding: 22px;
+    text-align: center;
 }
 
-header{
-    background:#111827;
-    color:white;
-    padding:18px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+nav {
+    background: #10243b;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
+nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-nav{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+nav button:hover {
+    background: #345678;
+    border-radius: 5px;
 }
 
-nav button{
-    background:transparent;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    cursor:pointer;
-    font-size:15px;
+.container {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ddd;
 }
 
-nav button:hover{
-    background:#2563eb;
-    border-radius:6px;
+.login-box {
+    max-width: 450px;
 }
 
-.hero{
-    min-height:450px;
-    padding:70px 8%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    background:linear-gradient(135deg,#111827,#2563eb);
-    color:white;
+input, select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
 }
 
-.hero h1{
-    font-size:55px;
-    margin-bottom:20px;
+.action {
+    background: #1e3a5f;
+    color: white;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
 }
 
-.hero p{
-    font-size:19px;
-    line-height:1.6;
-    max-width:550px;
+.action:hover {
+    background: #345678;
 }
 
-.hero-car{
-    text-align:center;
-    font-size:160px;
+.delete {
+    background: #dc2626;
 }
 
-.btn{
-    background:#2563eb;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:6px;
-    cursor:pointer;
-    margin-top:15px;
+.return {
+    background: #15803d;
 }
 
-.white-btn{
-    background:white;
-    color:#111827;
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-.features{
-    padding:50px 8%;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+.card {
+    background: #e8eef7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 15px #0002;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.form{
-    width:420px;
-    max-width:90%;
-    margin:50px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 3px 15px #0002;
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    text-align: left;
 }
 
-.form h1{
-    text-align:center;
-    margin-bottom:25px;
+th {
+    background: #1e3a5f;
+    color: white;
 }
 
-.input-group{
-    margin-bottom:15px;
+.hidden {
+    display: none;
 }
 
-.input-group label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:bold;
+.message {
+    color: #dc2626;
 }
 
-.input-group input,
-.input-group select{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:5px;
+footer {
+    background: #10243b;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
 }
 
-.form .btn{
-    width:100%;
-}
-
-.message{
-    text-align:center;
-    margin-top:15px;
-    font-weight:bold;
-}
-
-.section{
-    padding:40px 7%;
-}
-
-.section h1{
-    margin-bottom:25px;
-}
-
-.dashboard-cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.stat{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 15px #0002;
-}
-
-.stat h2{
-    color:#2563eb;
-    font-size:30px;
-    margin-bottom:10px;
-}
-
-.menu{
-    margin-top:30px;
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.search{
-    display:flex;
-    gap:10px;
-    margin-bottom:30px;
-}
-
-.search input,
-.search select{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:6px;
-}
-
-.search input{
-    flex:1;
-}
-
-.car-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.car-card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 3px 15px #0002;
-}
-
-.car-icon{
-    font-size:70px;
-    text-align:center;
-    margin-bottom:15px;
-}
-
-.car-card h2{
-    margin-bottom:10px;
-}
-
-.car-card p{
-    margin:7px 0;
-}
-
-.price{
-    color:#2563eb;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.car-card .btn{
-    width:100%;
-}
-
-.table-box{
-    overflow-x:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th,td{
-    padding:12px;
-    border-bottom:1px solid #ddd;
-    text-align:left;
-}
-
-th{
-    background:#111827;
-    color:white;
-}
-
-.approve{
-    background:#16a34a;
-    color:white;
-    padding:7px 10px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.reject{
-    background:#dc2626;
-    color:white;
-    padding:7px 10px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-footer{
-    background:#111827;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-@media(max-width:900px){
-
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
+@media (max-width: 600px) {
+    .container {
+        margin: 12px;
+        padding: 15px;
+        overflow-x: auto;
     }
 
-    .features,
-    .car-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .dashboard-cards{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    header{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .features,
-    .car-grid,
-    .dashboard-cards{
-        grid-template-columns:1fr;
-    }
-
-    .search{
-        flex-direction:column;
+    table {
+        min-width: 600px;
     }
 }
 </style>
@@ -335,1609 +154,510 @@ footer{
 
 <body>
 
-
-<!-- ================= HOME ================= -->
-
-<div id="home">
-
 <header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-<button onclick="openPage('home')">Home</button>
-<button onclick="openPage('cars')">Cars</button>
-<button onclick="openPage('login')">Login</button>
-<button onclick="openPage('signup')">Sign Up</button>
-<button onclick="openPage('adminLogin')">Admin</button>
-</nav>
-
+    <h1>📚 Library Management System</h1>
+    <p>Search, Manage and Borrow Books Easily</p>
 </header>
 
-
-<section class="hero">
-
-<div>
-
-<h1>Rent Your Dream Car</h1>
-
-<p>
-Easy, affordable and reliable car rental
-service. Choose your car and book it easily.
-</p>
-
-<button class="btn" onclick="openPage('cars')">
-Browse Cars
-</button>
-
-<button class="btn white-btn" onclick="openPage('signup')">
-Get Started
-</button>
-
-</div>
-
-<div class="hero-car">
-🚘
-</div>
-
-</section>
-
-
-<section class="features">
-
-<div class="card">
-<h2>🚗 Wide Choice</h2>
-<br>
-<p>Choose from different cars and categories.</p>
-</div>
-
-<div class="card">
-<h2>💰 Affordable</h2>
-<br>
-<p>Affordable rental prices for customers.</p>
-</div>
-
-<div class="card">
-<h2>⚡ Easy Booking</h2>
-<br>
-<p>Book your car in a few simple steps.</p>
-</div>
-
-</section>
-
-</div>
-
-
-<!-- ================= SIGNUP ================= -->
-
-<div id="signup" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
 <nav>
-<button onclick="openPage('home')">Home</button>
-<button onclick="openPage('login')">Login</button>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('admin')">Admin</button>
+    <button onclick="showPage('user')">User</button>
+    <button onclick="logout()">Logout</button>
 </nav>
 
-</header>
-
-
-<div class="form">
-
-<h1>Create Account</h1>
-
-<form onsubmit="signupUser(event)">
-
-<div class="input-group">
-<label>Name</label>
-<input type="text" id="name" required>
-</div>
-
-<div class="input-group">
-<label>Email</label>
-<input type="email" id="email" required>
-</div>
-
-<div class="input-group">
-<label>Phone</label>
-<input type="tel" id="phone" required>
-</div>
-
-<div class="input-group">
-<label>Password</label>
-<input type="password" id="password" required>
-</div>
-
-<button class="btn" type="submit">
-Create Account
-</button>
-
-</form>
-
-<p id="signupMsg" class="message"></p>
-
-</div>
-
-</div>
-
-
-<!-- ================= LOGIN ================= -->
-
-<div id="login" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-<button onclick="openPage('home')">Home</button>
-<button onclick="openPage('signup')">Sign Up</button>
-</nav>
-
-</header>
-
-
-<div class="form">
-
-<h1>User Login</h1>
-
-<form onsubmit="loginUser(event)">
-
-<div class="input-group">
-<label>Email</label>
-<input type="email" id="loginEmail" required>
-</div>
-
-<div class="input-group">
-<label>Password</label>
-<input type="password" id="loginPassword" required>
-</div>
-
-<button class="btn" type="submit">
-Login
-</button>
-
-</form>
-
-<p id="loginMsg" class="message"></p>
-
-</div>
-
-</div>
-
-
-<!-- ================= USER DASHBOARD ================= -->
-
-<div id="userDashboard" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-<button onclick="openPage('userDashboard')">
-Dashboard
-</button>
-
-<button onclick="openPage('cars')">
-Cars
-</button>
-
-<button onclick="openPage('bookings')">
-My Bookings
-</button>
-
-<button onclick="logout()">
-Logout
-</button>
-</nav>
-
-</header>
-
-
-<section class="section">
-
-<h1>
-Welcome, <span id="userName">User</span> 👋
-</h1>
-
-
-<div class="dashboard-cards">
-
-<div class="stat">
-<h2>🚗</h2>
-<p>Available Cars</p>
-</div>
-
-<div class="stat">
-<h2>📅</h2>
-<p>My Bookings</p>
-</div>
-
-<div class="stat">
-<h2>💰</h2>
-<p>Affordable Prices</p>
-</div>
-
-<div class="stat">
-<h2>⭐</h2>
-<p>Easy Service</p>
-</div>
-
-</div>
-
-
-<div class="menu">
-
-<button class="btn" onclick="openPage('cars')">
-Browse Cars
-</button>
-
-<button class="btn" onclick="openPage('bookings')">
-My Bookings
-</button>
-
-</div>
-
-</section>
-
-</div>
-
-
-<!-- ================= CARS ================= -->
-
-<div id="cars" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-
-<button onclick="goHome()">Home</button>
-
-<button onclick="openPage('userDashboard')">
-Dashboard
-</button>
-
-<button onclick="openPage('bookings')">
-My Bookings
-</button>
-
-</nav>
-
-</header>
-
-
-<section class="section">
-
-<h1>Available Cars</h1>
-
-
-<div class="search">
-
-<input
-type="text"
-id="search"
-placeholder="Search car..."
-onkeyup="showCars()"
->
-
-
-<select id="category" onchange="showCars()">
-
-<option value="All">
-All Categories
-</option>
-
-<option value="SUV">
-SUV
-</option>
-
-<option value="Sedan">
-Sedan
-</option>
-
-<option value="Hatchback">
-Hatchback
-</option>
-
-</select>
-
-</div>
-
-
-<div id="carList" class="car-grid"></div>
-
-</section>
-
-</div>
-
-
-<!-- ================= BOOKINGS ================= -->
-
-<div id="bookings" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-
-<button onclick="openPage('userDashboard')">
-Dashboard
-</button>
-
-<button onclick="openPage('cars')">
-Cars
-</button>
-
-<button onclick="logout()">
-Logout
-</button>
-
-</nav>
-
-</header>
-
-
-<section class="section">
-
-<h1>My Bookings</h1>
-
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>ID</th>
-<th>Car</th>
-<th>Pickup</th>
-<th>Return</th>
-<th>Total</th>
-<th>Status</th>
-</tr>
-
-</thead>
-
-<tbody id="bookingList"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-</div>
-
-
-<!-- ================= ADMIN LOGIN ================= -->
-
-<div id="adminLogin" class="hidden">
-
-<header>
-
-<div class="logo">🚗 DriveEasy</div>
-
-<nav>
-<button onclick="openPage('home')">
-Home
-</button>
-</nav>
-
-</header>
-
-
-<div class="form">
-
-<h1>🔐 Admin Login</h1>
-
-<form onsubmit="adminLogin(event)">
-
-<div class="input-group">
-<label>Email</label>
-<input type="email" id="adminEmail" required>
-</div>
-
-<div class="input-group">
-<label>Password</label>
-<input type="password" id="adminPassword" required>
-</div>
-
-<button class="btn" type="submit">
-Admin Login
-</button>
-
-</form>
-
-<p id="adminMsg" class="message"></p>
-
-<br>
-
-<p style="text-align:center">
-Demo:<br>
-<b>admin@driveeasy.com</b><br>
-<b>admin123</b>
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= ADMIN DASHBOARD ================= -->
-
-<div id="adminDashboard" class="hidden">
-
-<header>
-
-<div class="logo">
-🚗 DriveEasy Admin
-</div>
-
-<nav>
-
-<button onclick="adminLogout()">
-Logout
-</button>
-
-</nav>
-
-</header>
-
-
-<section class="section">
-
-<h1>Admin Dashboard</h1>
-
-
-<div class="dashboard-cards">
-
-<div class="stat">
-<h2 id="carCount">0</h2>
-<p>Total Cars</p>
-</div>
-
-<div class="stat">
-<h2 id="userCount">0</h2>
-<p>Total Users</p>
-</div>
-
-<div class="stat">
-<h2 id="bookingCount">0</h2>
-<p>Total Bookings</p>
-</div>
-
-<div class="stat">
-<h2 id="pendingCount">0</h2>
-<p>Pending Bookings</p>
-</div>
-
-</div>
-
-
-<h2 style="margin-top:40px">
-Manage Bookings
-</h2>
-
-<br>
-
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>ID</th>
-<th>User</th>
-<th>Car</th>
-<th>Dates</th>
-<th>Total</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-
-</thead>
-
-<tbody id="adminBookingList"></tbody>
-
-</table>
-
-</div>
-
-
-<h2 style="margin-top:40px">
-Registered Users
-</h2>
-
-<br>
-
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Phone</th>
-</tr>
-
-</thead>
-
-<tbody id="userList"></tbody>
-
-</table>
-
-</div>
-
-</section>
-
-</div>
-
-
-<footer>
-
-© 2026 DriveEasy Car Rental System
-
-</footer>
-
-
-<script>
-
-/* =========================================
-   DATA
-========================================= */
-
-const cars = [
-
-{
-id:1,
-name:"Toyota Fortuner",
-category:"SUV",
-price:5000,
-seats:7,
-fuel:"Diesel",
-icon:"🚙"
-},
-
-{
-id:2,
-name:"Hyundai Creta",
-category:"SUV",
-price:3000,
-seats:5,
-fuel:"Petrol",
-icon:"🚗"
-},
-
-{
-id:3,
-name:"Maruti Swift",
-category:"Hatchback",
-price:1800,
-seats:5,
-fuel:"Petrol",
-icon:"🚘"
-},
-
-{
-id:4,
-name:"Honda City",
-category:"Sedan",
-price:2500,
-seats:5,
-fuel:"Petrol",
-icon:"🚗"
-},
-
-{
-id:5,
-name:"Kia Seltos",
-category:"SUV",
-price:3500,
-seats:5,
-fuel:"Diesel",
-icon:"🚙"
-},
-
-{
-id:6,
-name:"Tata Nexon",
-category:"SUV",
-price:2800,
-seats:5,
-fuel:"Petrol",
-icon:"🚗"
-}
-
-];
-
-
-/* =========================================
-   INITIAL LOCAL STORAGE
-========================================= */
-
-if(!localStorage.getItem("cars")){
-    localStorage.setItem(
-        "cars",
-        JSON.stringify(cars)
-    );
-}
-
-if(!localStorage.getItem("users")){
-    localStorage.setItem(
-        "users",
-        JSON.stringify([])
-    );
-}
-
-if(!localStorage.getItem("bookings")){
-    localStorage.setItem(
-        "bookings",
-        JSON.stringify([])
-    );
-}
-
-
-/* =========================================
-   PAGE NAVIGATION
-========================================= */
-
-function openPage(page){
-
-    const pages = [
-        "home",
-        "signup",
-        "login",
-        "userDashboard",
-        "cars",
-        "bookings",
-        "adminLogin",
-        "adminDashboard"
-    ];
-
-    pages.forEach(function(p){
-
-        document
-        .getElementById(p)
-        .classList.add("hidden");
-
-    });
-
-
-    document
-    .getElementById(page)
-    .classList.remove("hidden");
-
-
-    if(page === "cars"){
-        showCars();
-    }
-
-
-    if(page === "bookings"){
-        showBookings();
-    }
-
-
-    if(page === "userDashboard"){
-        loadUser();
-    }
-
-
-    if(page === "adminDashboard"){
-        loadAdmin();
-    }
-
-}
-
-
-function goHome(){
-    openPage("home");
-}
-
-
-/* =========================================
-   SIGNUP
-========================================= */
-
-function signupUser(event){
-
-    event.preventDefault();
-
-    let users =
-        JSON.parse(
-            localStorage.getItem("users")
-        ) || [];
-
-
-    const name =
-        document.getElementById("name").value;
-
-    const email =
-        document.getElementById("email").value;
-
-    const phone =
-        document.getElementById("phone").value;
-
-    const password =
-        document.getElementById("password").value;
-
-
-    const exists =
-        users.find(
-            u => u.email === email
-        );
-
-
-    if(exists){
-
-        document.getElementById(
-            "signupMsg"
-        ).innerText =
-            "Email already registered!";
-
-        return;
-    }
-
-
-    users.push({
-
-        id:Date.now(),
-
-        name:name,
-
-        email:email,
-
-        phone:phone,
-
-        password:password
-
-    });
-
-
-    localStorage.setItem(
-        "users",
-        JSON.stringify(users)
-    );
-
-
-    document.getElementById(
-        "signupMsg"
-    ).innerText =
-        "Account created successfully!";
-
-
-    document
-    .querySelector("#signup form")
-    .reset();
-
-
-    setTimeout(function(){
-
-        openPage("login");
-
-    },1000);
-
-}
-
-
-/* =========================================
-   LOGIN
-========================================= */
-
-function loginUser(event){
-
-    event.preventDefault();
-
-
-    const email =
-        document.getElementById(
-            "loginEmail"
-        ).value;
-
-
-    const password =
-        document.getElementById(
-            "loginPassword"
-        ).value;
-
-
-    const users =
-        JSON.parse(
-            localStorage.getItem("users")
-        ) || [];
-
-
-    const user =
-        users.find(
-            u =>
-            u.email === email &&
-            u.password === password
-        );
-
-
-    if(!user){
-
-        document.getElementById(
-            "loginMsg"
-        ).innerText =
-            "Invalid email or password!";
-
-        return;
-    }
-
-
-    localStorage.setItem(
-        "currentUser",
-        JSON.stringify(user)
-    );
-
-
-    openPage("userDashboard");
-
-}
-
-
-/* =========================================
-   LOAD USER
-========================================= */
-
-function loadUser(){
-
-    const user =
-        JSON.parse(
-            localStorage.getItem(
-                "currentUser"
-            )
-        );
-
-
-    if(!user){
-
-        openPage("login");
-
-        return;
-
-    }
-
-
-    document.getElementById(
-        "userName"
-    ).innerText =
-        user.name;
-
-}
-
-
-/* =========================================
-   LOGOUT
-========================================= */
-
-function logout(){
-
-    localStorage.removeItem(
-        "currentUser"
-    );
-
-    openPage("home");
-
-}
-
-
-/* =========================================
-   SHOW CARS
-========================================= */
-
-function showCars(){
-
-    const list =
-        document.getElementById(
-            "carList"
-        );
-
-
-    if(!list) return;
-
-
-    const search =
-        document.getElementById(
-            "search"
-        ).value.toLowerCase();
-
-
-    const category =
-        document.getElementById(
-            "category"
-        ).value;
-
-
-    const allCars =
-        JSON.parse(
-            localStorage.getItem(
-                "cars"
-            )
-        );
-
-
-    const filtered =
-        allCars.filter(function(car){
-
-            return (
-
-                car.name
-                .toLowerCase()
-                .includes(search)
-
-                &&
-
-                (
-                    category === "All" ||
-                    car.category === category
-                )
-
-            );
-
-        });
-
-
-    list.innerHTML = "";
-
-
-    filtered.forEach(function(car){
-
-        list.innerHTML += `
-
-        <div class="car-card">
-
-            <div class="car-icon">
-                ${car.icon}
-            </div>
-
-            <h2>
-                ${car.name}
-            </h2>
-
-            <p>
-                Category: ${car.category}
-            </p>
-
-            <p>
-                Seats: ${car.seats}
-            </p>
-
-            <p>
-                Fuel: ${car.fuel}
-            </p>
-
-            <p class="price">
-                ₹${car.price} / Day
-            </p>
-
-            <button
-                class="btn"
-                onclick="bookCar(${car.id})">
-
-                Book Now
-
-            </button>
-
+<!-- HOME PAGE -->
+<section id="home" class="container">
+    <h2>Welcome to Our Library!</h2>
+    <p>Manage books, search your favourite titles, and borrow books easily.</p>
+
+    <div class="card-grid">
+        <div class="card">
+            <h2>📖</h2>
+            <h3>Books</h3>
+            <p>Explore available books.</p>
         </div>
 
-        `;
+        <div class="card">
+            <h2>👨‍💼</h2>
+            <h3>Admin</h3>
+            <p>Add and manage books.</p>
+        </div>
 
-    });
+        <div class="card">
+            <h2>👩‍🎓</h2>
+            <h3>User</h3>
+            <p>Search and borrow books.</p>
+        </div>
+    </div>
 
+    <br>
+    <button class="action" onclick="showPage('login')">Get Started</button>
+</section>
+
+<!-- LOGIN AND REGISTRATION -->
+<section id="login" class="container login-box hidden">
+    <h2>Login</h2>
+
+    <label for="role">Select Role</label>
+    <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select>
+
+    <input id="username" placeholder="Enter username">
+    <input id="password" type="password" placeholder="Enter password">
+
+    <button class="action" onclick="login()">Login</button>
+    <p id="loginMessage" class="message"></p>
+
+    <hr>
+
+    <h3>New User? Register Here</h3>
+    <input id="newUsername" placeholder="Create username">
+    <input id="newPassword" type="password" placeholder="Create password">
+
+    <button class="action" onclick="register()">Register</button>
+</section>
+
+<!-- ADMIN DASHBOARD -->
+<section id="admin" class="container hidden">
+    <h2>👨‍💼 Admin Dashboard</h2>
+    <p>Add, view and delete books in the library.</p>
+
+    <h3>Add New Book</h3>
+
+    <input id="bookTitle" placeholder="Book title">
+    <input id="bookAuthor" placeholder="Author name">
+    <input id="bookCategory" placeholder="Book category">
+    <input id="bookQuantity" type="number" min="1" placeholder="Quantity">
+
+    <button class="action" onclick="addBook()">Add Book</button>
+
+    <h3>Library Books</h3>
+    <p id="adminSummary"></p>
+
+    <div style="overflow-x:auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Available</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="adminBookList"></tbody>
+        </table>
+    </div>
+</section>
+
+<!-- USER DASHBOARD -->
+<section id="user" class="container hidden">
+    <h2>👩‍🎓 User Dashboard</h2>
+    <p id="welcomeUser">Welcome!</p>
+
+    <h3>Search Books</h3>
+    <input id="searchBook"
+           placeholder="Search by title, author or category"
+           oninput="displayUserBooks()">
+
+    <div style="overflow-x:auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Available</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userBookList"></tbody>
+        </table>
+    </div>
+
+    <h3>My Borrowed Books</h3>
+
+    <div style="overflow-x:auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Borrowed Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="borrowedList"></tbody>
+        </table>
+    </div>
+</section>
+
+<footer>
+    <p>Library Management System | Student Project</p>
+</footer>
+
+<script>
+// INITIAL DATA
+function getData(key) {
+    return JSON.parse(localStorage.getItem(key) || "[]");
 }
 
-
-/* =========================================
-   BOOK CAR
-========================================= */
-
-function bookCar(id){
-
-    const user =
-        JSON.parse(
-            localStorage.getItem(
-                "currentUser"
-            )
-        );
-
-
-    if(!user){
-
-        alert(
-            "Please login first!"
-        );
-
-        openPage("login");
-
-        return;
-
-    }
-
-
-    const allCars =
-        JSON.parse(
-            localStorage.getItem(
-                "cars"
-            )
-        );
-
-
-    const car =
-        allCars.find(
-            c => c.id === id
-        );
-
-
-    const pickup =
-        prompt(
-            "Enter pickup date:"
-        );
-
-
-    if(!pickup) return;
-
-
-    const returnDate =
-        prompt(
-            "Enter return date:"
-        );
-
-
-    if(!returnDate) return;
-
-
-    const days =
-        Number(
-            prompt(
-                "Enter number of days:"
-            )
-        );
-
-
-    if(!days || days <= 0){
-
-        alert(
-            "Enter valid number of days."
-        );
-
-        return;
-
-    }
-
-
-    const total =
-        car.price * days;
-
-
-    const confirmBooking =
-        confirm(
-
-            "Car: " +
-            car.name +
-
-            "\nDays: " +
-            days +
-
-            "\nTotal: ₹" +
-            total +
-
-            "\n\nConfirm booking?"
-
-        );
-
-
-    if(!confirmBooking) return;
-
-
-    let bookings =
-        JSON.parse(
-            localStorage.getItem(
-                "bookings"
-            )
-        ) || [];
-
-
-    bookings.push({
-
-        id:"B" + Date.now(),
-
-        userId:user.id,
-
-        userName:user.name,
-
-        carName:car.name,
-
-        pickup:pickup,
-
-        returnDate:returnDate,
-
-        days:days,
-
-        total:total,
-
-        status:"Pending"
-
-    });
-
-
-    localStorage.setItem(
-        "bookings",
-        JSON.stringify(bookings)
-    );
-
-
-    alert(
-        "Booking successful!"
-    );
-
-
-    openPage("bookings");
-
+function saveData(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
 }
 
-
-/* =========================================
-   SHOW USER BOOKINGS
-========================================= */
-
-function showBookings(){
-
-    const table =
-        document.getElementById(
-            "bookingList"
-        );
-
-
-    if(!table) return;
-
-
-    const user =
-        JSON.parse(
-            localStorage.getItem(
-                "currentUser"
-            )
-        );
-
-
-    if(!user){
-
-        openPage("login");
-
-        return;
-
-    }
-
-
-    const bookings =
-        JSON.parse(
-            localStorage.getItem(
-                "bookings"
-            )
-        ) || [];
-
-
-    const mine =
-        bookings.filter(
-            b => b.userId === user.id
-        );
-
-
-    table.innerHTML = "";
-
-
-    if(mine.length === 0){
-
-        table.innerHTML = `
-
-        <tr>
-
-        <td colspan="6">
-            No bookings yet.
-        </td>
-
-        </tr>
-
-        `;
-
-        return;
-
-    }
-
-
-    mine.forEach(function(b){
-
-        table.innerHTML += `
-
-        <tr>
-
-        <td>${b.id}</td>
-
-        <td>${b.carName}</td>
-
-        <td>${b.pickup}</td>
-
-        <td>${b.returnDate}</td>
-
-        <td>₹${b.total}</td>
-
-        <td>${b.status}</td>
-
-        </tr>
-
-        `;
-
-    });
-
-}
-
-
-/* =========================================
-   ADMIN LOGIN
-========================================= */
-
-function adminLogin(event){
-
-    event.preventDefault();
-
-
-    const email =
-        document.getElementById(
-            "adminEmail"
-        ).value;
-
-
-    const password =
-        document.getElementById(
-            "adminPassword"
-        ).value;
-
-
-    if(
-
-        email ===
-        "admin@driveeasy.com"
-
-        &&
-
-        password ===
-        "admin123"
-
-    ){
-
-        localStorage.setItem(
-            "admin",
-            "true"
-        );
-
-
-        openPage(
-            "adminDashboard"
-        );
-
-    }
-
-    else{
-
-        document.getElementById(
-            "adminMsg"
-        ).innerText =
-            "Invalid admin login!";
-
-    }
-
-}
-
-
-/* =========================================
-   ADMIN DASHBOARD
-========================================= */
-
-function loadAdmin(){
-
-    if(
-        localStorage.getItem("admin")
-        !== "true"
-    ){
-
-        openPage(
-            "adminLogin"
-        );
-
-        return;
-
-    }
-
-
-    const cars =
-        JSON.parse(
-            localStorage.getItem(
-                "cars"
-            )
-        ) || [];
-
-
-    const users =
-        JSON.parse(
-            localStorage.getItem(
-                "users"
-            )
-        ) || [];
-
-
-    const bookings =
-        JSON.parse(
-            localStorage.getItem(
-                "bookings"
-            )
-        ) || [];
-
-
-    document.getElementById(
-        "carCount"
-    ).innerText =
-        cars.length;
-
-
-    document.getElementById(
-        "userCount"
-    ).innerText =
-        users.length;
-
-
-    document.getElementById(
-        "bookingCount"
-    ).innerText =
-        bookings.length;
-
-
-    document.getElementById(
-        "pendingCount"
-    ).innerText =
-
-        bookings.filter(
-            b =>
-            b.status === "Pending"
-        ).length;
-
-
-    showAdminBookings();
-
-    showUsers();
-
-}
-
-
-/* =========================================
-   ADMIN BOOKINGS
-========================================= */
-
-function showAdminBookings(){
-
-    const table =
-        document.getElementById(
-            "adminBookingList"
-        );
-
-
-    const bookings =
-        JSON.parse(
-            localStorage.getItem(
-                "bookings"
-            )
-        ) || [];
-
-
-    table.innerHTML = "";
-
-
-    if(bookings.length === 0){
-
-        table.innerHTML = `
-
-        <tr>
-
-        <td colspan="7">
-            No bookings available.
-        </td>
-
-        </tr>
-
-        `;
-
-        return;
-
-    }
-
-
-    bookings.forEach(
-        function(b,index){
-
-            table.innerHTML += `
-
-            <tr>
-
-            <td>
-                ${b.id}
-            </td>
-
-            <td>
-                ${b.userName}
-            </td>
-
-            <td>
-                ${b.carName}
-            </td>
-
-            <td>
-                ${b.pickup} -
-                ${b.returnDate}
-            </td>
-
-            <td>
-                ₹${b.total}
-            </td>
-
-            <td>
-                ${b.status}
-            </td>
-
-            <td>
-
-            <button
-                class="approve"
-                onclick="
-                changeStatus(
-                    ${index},
-                    'Approved'
-                )">
-
-                Approve
-
-            </button>
-
-            <button
-                class="reject"
-                onclick="
-                changeStatus(
-                    ${index},
-                    'Rejected'
-                )">
-
-                Reject
-
-            </button>
-
-            </td>
-
-            </tr>
-
-            `;
-
+// PAGE NAVIGATION
+function showPage(page) {
+    const protectedPages = ["admin", "user"];
+
+    if (protectedPages.includes(page)) {
+        const role = sessionStorage.getItem("libraryRole");
+
+        if (role !== page) {
+            alert("Please log in with the correct role first.");
+            page = "login";
         }
-    );
+    }
 
-}
-
-
-/* =========================================
-   CHANGE BOOKING STATUS
-========================================= */
-
-function changeStatus(
-    index,
-    status
-){
-
-    let bookings =
-        JSON.parse(
-            localStorage.getItem(
-                "bookings"
-            )
-        );
-
-
-    bookings[index].status =
-        status;
-
-
-    localStorage.setItem(
-        "bookings",
-        JSON.stringify(bookings)
-    );
-
-
-    loadAdmin();
-
-}
-
-
-/* =========================================
-   SHOW USERS
-========================================= */
-
-function showUsers(){
-
-    const table =
-        document.getElementById(
-            "userList"
-        );
-
-
-    const users =
-        JSON.parse(
-            localStorage.getItem(
-                "users"
-            )
-        ) || [];
-
-
-    table.innerHTML = "";
-
-
-    users.forEach(function(user){
-
-        table.innerHTML += `
-
-        <tr>
-
-        <td>
-            ${user.name}
-        </td>
-
-        <td>
-            ${user.email}
-        </td>
-
-        <td>
-            ${user.phone}
-        </td>
-
-        </tr>
-
-        `;
-
+    document.querySelectorAll("section").forEach(section => {
+        section.classList.add("hidden");
     });
 
+    document.getElementById(page).classList.remove("hidden");
+
+    if (page === "admin") {
+        displayAdminBooks();
+    }
+
+    if (page === "user") {
+        displayUserBooks();
+    }
 }
 
+// USER REGISTRATION
+function register() {
+    const username = document.getElementById("newUsername").value.trim();
+    const password = document.getElementById("newPassword").value;
 
-/* =========================================
-   ADMIN LOGOUT
-========================================= */
+    if (!username || !password) {
+        alert("Please enter username and password.");
+        return;
+    }
 
-function adminLogout(){
+    const users = getData("libraryUsers");
 
-    localStorage.removeItem(
-        "admin"
-    );
+    if (users.some(user => user.username === username)) {
+        alert("Username already exists.");
+        return;
+    }
 
-    openPage(
-        "home"
-    );
+    users.push({
+        username: username,
+        password: password,
+        role: "user"
+    });
 
+    saveData("libraryUsers", users);
+
+    alert("Registration successful! Please log in.");
+
+    document.getElementById("newUsername").value = "";
+    document.getElementById("newPassword").value = "";
 }
 
+// LOGIN
+function login() {
+    const role = document.getElementById("role").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
 
-/* =========================================
-   START
-========================================= */
+    const message = document.getElementById("loginMessage");
 
-openPage("home");
+    if (!username || !password) {
+        message.textContent = "Enter username and password.";
+        return;
+    }
 
+    if (role === "admin") {
+        if (username === "admin" && password === "admin123") {
+            sessionStorage.setItem("libraryRole", "admin");
+            sessionStorage.setItem("libraryUsername", "admin");
+
+            message.textContent = "";
+            showPage("admin");
+        } else {
+            message.textContent = "Invalid admin credentials.";
+        }
+
+        return;
+    }
+
+    const users = getData("libraryUsers");
+
+    const foundUser = users.find(user =>
+        user.username === username &&
+        user.password === password &&
+        user.role === "user"
+    );
+
+    if (foundUser) {
+        sessionStorage.setItem("libraryRole", "user");
+        sessionStorage.setItem("libraryUsername", username);
+
+        message.textContent = "";
+        document.getElementById("welcomeUser").textContent =
+            "Welcome, " + username + "!";
+
+        showPage("user");
+    } else {
+        message.textContent = "Invalid login. Please register first.";
+    }
+}
+
+// LOGOUT
+function logout() {
+    sessionStorage.removeItem("libraryRole");
+    sessionStorage.removeItem("libraryUsername");
+    showPage("home");
+}
+
+// BOOK MANAGEMENT
+function addBook() {
+    if (sessionStorage.getItem("libraryRole") !== "admin") {
+        alert("Please log in as admin.");
+        return;
+    }
+
+    const title = document.getElementById("bookTitle").value.trim();
+    const author = document.getElementById("bookAuthor").value.trim();
+    const category = document.getElementById("bookCategory").value.trim();
+    const quantity = Number(document.getElementById("bookQuantity").value);
+
+    if (!title || !author || !category ||
+        !Number.isInteger(quantity) || quantity < 1) {
+        alert("Enter valid book details and quantity.");
+        return;
+    }
+
+    const books = getData("libraryBooks");
+
+    books.push({
+        id: Date.now(),
+        title: title,
+        author: author,
+        category: category,
+        quantity: quantity,
+        available: quantity
+    });
+
+    saveData("libraryBooks", books);
+
+    document.getElementById("bookTitle").value = "";
+    document.getElementById("bookAuthor").value = "";
+    document.getElementById("bookCategory").value = "";
+    document.getElementById("bookQuantity").value = "";
+
+    displayAdminBooks();
+    alert("Book added successfully!");
+}
+
+// DISPLAY BOOKS FOR ADMIN
+function displayAdminBooks() {
+    const books = getData("libraryBooks");
+    const list = document.getElementById("adminBookList");
+
+    list.replaceChildren();
+
+    books.forEach(book => {
+        const row = document.createElement("tr");
+
+        [book.title, book.author, book.category,
+         book.available + " / " + book.quantity].forEach(value => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        const actionCell = document.createElement("td");
+        const button = document.createElement("button");
+
+        button.textContent = "Delete";
+        button.className = "action delete";
+        button.onclick = () => deleteBook(book.id);
+
+        actionCell.appendChild(button);
+        row.appendChild(actionCell);
+        list.appendChild(row);
+    });
+
+    document.getElementById("adminSummary").textContent =
+        "Book titles: " + books.length +
+        " | Total copies: " +
+        books.reduce((sum, book) => sum + book.quantity, 0);
+}
+
+// DELETE BOOK
+function deleteBook(id) {
+    const books = getData("libraryBooks");
+    const book = books.find(item => item.id === id);
+
+    if (!book) return;
+
+    if (book.available !== book.quantity) {
+        alert("Return all borrowed copies before deleting this book.");
+        return;
+    }
+
+    if (confirm("Delete this book?")) {
+        saveData("libraryBooks", books.filter(item => item.id !== id));
+        displayAdminBooks();
+    }
+}
+
+// SEARCH AND DISPLAY BOOKS FOR USERS
+function displayUserBooks() {
+    const books = getData("libraryBooks");
+    const query = document.getElementById("searchBook").value.toLowerCase();
+    const list = document.getElementById("userBookList");
+
+    list.replaceChildren();
+
+    books.filter(book =>
+        book.title.toLowerCase().includes(query) ||
+        book.author.toLowerCase().includes(query) ||
+        book.category.toLowerCase().includes(query)
+    ).forEach(book => {
+        const row = document.createElement("tr");
+
+        [book.title, book.author, book.category, book.available]
+            .forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+        const actionCell = document.createElement("td");
+        const button = document.createElement("button");
+
+        button.textContent = book.available > 0 ? "Borrow" : "Unavailable";
+        button.className = "action";
+        button.disabled = book.available < 1;
+        button.onclick = () => borrowBook(book.id);
+
+        actionCell.appendChild(button);
+        row.appendChild(actionCell);
+        list.appendChild(row);
+    });
+
+    displayBorrowedBooks();
+}
+
+// BORROW BOOK
+function borrowBook(id) {
+    const username = sessionStorage.getItem("libraryUsername");
+
+    if (sessionStorage.getItem("libraryRole") !== "user" || !username) {
+        alert("Please log in as a user.");
+        showPage("login");
+        return;
+    }
+
+    const books = getData("libraryBooks");
+    const book = books.find(item => item.id === id);
+
+    if (!book || book.available < 1) {
+        alert("Book is unavailable.");
+        return;
+    }
+
+    const borrowings = getData("libraryBorrowings");
+
+    if (borrowings.some(item =>
+        item.bookId === id && item.username === username
+    )) {
+        alert("You have already borrowed this book.");
+        return;
+    }
+
+    book.available--;
+
+    borrowings.push({
+        bookId: id,
+        username: username,
+        title: book.title,
+        date: new Date().toLocaleDateString()
+    });
+
+    saveData("libraryBooks", books);
+    saveData("libraryBorrowings", borrowings);
+
+    displayUserBooks();
+    alert("Book borrowed successfully!");
+}
+
+// DISPLAY BORROWED BOOKS
+function displayBorrowedBooks() {
+    const username = sessionStorage.getItem("libraryUsername");
+    const borrowings = getData("libraryBorrowings").filter(item =>
+        item.username === username
+    );
+
+    const list = document.getElementById("borrowedList");
+    list.replaceChildren();
+
+    borrowings.forEach(item => {
+        const row = document.createElement("tr");
+
+        const titleCell = document.createElement("td");
+        titleCell.textContent = item.title;
+
+        const dateCell = document.createElement("td");
+        dateCell.textContent = item.date;
+
+        const actionCell = document.createElement("td");
+        const button = document.createElement("button");
+
+        button.textContent = "Return";
+        button.className = "action return";
+        button.onclick = () => returnBook(item.bookId);
+
+        actionCell.appendChild(button);
+        row.append(titleCell, dateCell, actionCell);
+        list.appendChild(row);
+    });
+}
+
+// RETURN BOOK
+function returnBook(id) {
+    const username = sessionStorage.getItem("libraryUsername");
+    const borrowings = getData("libraryBorrowings");
+
+    const index = borrowings.findIndex(item =>
+        item.bookId === id && item.username === username
+    );
+
+    if (index === -1) return;
+
+    const books = getData("libraryBooks");
+    const book = books.find(item => item.id === id);
+
+    if (book) {
+        book.available = Math.min(book.quantity, book.available + 1);
+        saveData("libraryBooks", books);
+    }
+
+    borrowings.splice(index, 1);
+    saveData("libraryBorrowings", borrowings);
+
+    displayUserBooks();
+    alert("Book returned successfully!");
+}
+
+// START PAGE
+showPage("home");
 </script>
 
 </body>
